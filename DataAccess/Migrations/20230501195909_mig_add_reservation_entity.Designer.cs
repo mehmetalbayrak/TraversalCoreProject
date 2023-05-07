@@ -4,6 +4,7 @@ using DataAccess.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230501195909_mig_add_reservation_entity")]
+    partial class mig_add_reservation_entity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -448,8 +450,9 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("DestinationId")
-                        .HasColumnType("int");
+                    b.Property<string>("Destination")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PersonCount")
                         .IsRequired()
@@ -465,8 +468,6 @@ namespace DataAccess.Migrations
                     b.HasKey("ReservationId");
 
                     b.HasIndex("AppUserId");
-
-                    b.HasIndex("DestinationId");
 
                     b.ToTable("Reservations");
                 });
@@ -642,15 +643,7 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Entity.Concrete.Destination", "Destination")
-                        .WithMany("Reservations")
-                        .HasForeignKey("DestinationId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("AppUser");
-
-                    b.Navigation("Destination");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -712,8 +705,6 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("Entity.Concrete.Destination", b =>
                 {
                     b.Navigation("Comments");
-
-                    b.Navigation("Reservations");
                 });
 #pragma warning restore 612, 618
         }

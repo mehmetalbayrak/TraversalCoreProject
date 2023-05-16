@@ -30,17 +30,17 @@ namespace Business.Concrete
 
         public void TAdd(Destination entity)
         {
-            throw new NotImplementedException();
+            _destinationDal.Add(entity);
         }
 
         public void TDelete(Destination entity)
         {
-            throw new NotImplementedException();
+            _destinationDal.Delete(entity);
         }
 
         public void TUpdate(Destination entity)
         {
-            throw new NotImplementedException();
+            _destinationDal.Update(entity);
         }
     }
 }

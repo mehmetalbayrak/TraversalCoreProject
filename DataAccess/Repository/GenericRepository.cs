@@ -16,6 +16,7 @@ namespace DataAccess.Repository
             using (var context = new Context())
             {
                 context.Add(entity);
+                context.SaveChanges();
             }
         }
 
@@ -57,6 +58,7 @@ namespace DataAccess.Repository
             using (var context = new Context())
             {
                 context.Update(entity);
+                context.SaveChanges();
             }
         }
     }

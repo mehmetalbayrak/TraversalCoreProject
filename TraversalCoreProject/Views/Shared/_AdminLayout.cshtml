@@ -7,6 +7,16 @@
       data-template="vertical-menu-template-free">
 @await Html.PartialAsync("/Views/Admin/PartialHeader.cshtml")
 <body>
+    <script>
+        function clicked(e) {
+            if (!confirm('Silmek istediğinden emin misin?')) {
+                e.preventDefault();
+            }
+        }
+    </script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
     <!-- Layout wrapper -->
     <div class="layout-wrapper layout-content-navbar">
         <div class="layout-container">

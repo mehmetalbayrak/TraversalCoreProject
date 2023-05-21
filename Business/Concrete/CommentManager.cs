@@ -20,17 +20,22 @@ namespace Business.Concrete
 
         public List<Comment> GetAll()
         {
-            throw new NotImplementedException();
+            return _commentDal.GetAll();
         }
 
         public Comment GetById(int id)
         {
-            throw new NotImplementedException();
+            return _commentDal.GetById(id);
         }
 
         public List<Comment> GetDestinationById(int id)
         {
             return _commentDal.GetListByFilter(x => x.Id == id).ToList();
+        }
+
+        public List<Comment> GetListCommentWithDestination()
+        {
+            return _commentDal.GetListCommentWithDestination();
         }
 
         public void TAdd(Comment entity)
@@ -40,12 +45,12 @@ namespace Business.Concrete
 
         public void TDelete(Comment entity)
         {
-            throw new NotImplementedException();
+             _commentDal.Delete(entity);
         }
 
         public void TUpdate(Comment entity)
         {
-            throw new NotImplementedException();
+            _commentDal.Update(entity);
         }
     }
 }

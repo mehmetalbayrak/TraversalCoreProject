@@ -9,17 +9,19 @@ namespace TraversalCoreProject.Controllers
         private readonly ILogger<HomeController> _logger;
 
         public HomeController(ILogger<HomeController> logger)
-        {
+        {          
             _logger = logger;
         }
 
         public IActionResult Index()
         {
+            _logger.LogInformation("Home Index sayfası çağrıldı.");
             return View();
         }
 
         public IActionResult Privacy()
         {
+            _logger.LogInformation("Home Privacy sayfası çağrıldı.");
             return View();
         }
 

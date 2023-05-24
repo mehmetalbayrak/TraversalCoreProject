@@ -33,6 +33,16 @@ namespace Business.Concrete
             throw new NotImplementedException();
         }
 
+        public void TChangeToFalseGuide(int id)
+        {
+            _guideDal.ChangeToFalseGuide(id);
+        }
+
+        public void TChangeToTrueGuide(int id)
+        {
+            _guideDal.ChangeToTrueGuide(id);
+        }
+
         public void TDelete(Guide entity)
         {
             throw new NotImplementedException();

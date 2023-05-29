@@ -30,6 +30,9 @@ namespace Business.Container
             services.AddScoped<IGuideService, GuideManager>();
             services.AddScoped<IGuideDal, EfGuideDal>();
 
+            services.AddScoped<IContactUsService, ContacUsManager>();
+            services.AddScoped<IContactUsDal, EfContactUsDal>();
+
             services.AddScoped<IExcelService, ExcelManager>();
 
             services.AddScoped<IPdfService, PdfManager>();

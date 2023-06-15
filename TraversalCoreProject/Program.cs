@@ -30,6 +30,7 @@ builder.Services.AddIdentity<AppUser, AppRole>()
     .AddEntityFrameworkStores<Context>();
 
 builder.Services.AddRepositories();
+builder.Services.CustomValidator();
 
 builder.Services.AddAutoMapper(typeof(Program));
 

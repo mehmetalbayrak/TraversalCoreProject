@@ -1,5 +1,4 @@
-﻿@using TraversalCoreProject.Areas.Admin.Models
-@model List<AnnouncementListViewModel>
+﻿@model List<AnnouncementListDto>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -19,7 +18,10 @@
             <td>@item.Title</td>
             <td>@item.Content</td>
             <td><a href="#" class="btn btn-primary"> Detaylar</a></td>
+            <td><a href="/Admin/Announcement/UpdateAnnouncement/@item.Id" class="btn btn-success">Güncelle</a></td>
+            <td><a href="/Admin/Announcement/DeleteAnnouncement/@item.Id" class="btn btn-danger">Sil</a></td>
         </tr>
     }
 </table>
+<a href="/Admin/Announcement/AddAnnouncement" class="btn btn-success">Yeni Duyuru</a>
 

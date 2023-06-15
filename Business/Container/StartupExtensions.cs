@@ -43,6 +43,9 @@ namespace Business.Container
 
             services.AddScoped<IPdfService, PdfManager>();
 
+        }
+        public static void CustomValidator(this IServiceCollection services)
+        {
             services.AddTransient<IValidator<AddAnnouncementDto>, AnnouncementValidator>();
         }
     }

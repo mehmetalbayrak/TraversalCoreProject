@@ -29,6 +29,8 @@ builder.Services.AddIdentity<AppUser, AppRole>()
     .AddErrorDescriber<CustomIdentityValidator>()
     .AddEntityFrameworkStores<Context>();
 
+builder.Services.AddHttpClient();
+
 builder.Services.AddRepositories();
 builder.Services.CustomValidator();
 

@@ -9,6 +9,7 @@ using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using TraversalCoreProject.CQRS.Queries.Handlers.DestinationHandlers;
 using TraversalCoreProject.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -33,6 +34,7 @@ builder.Services.AddHttpClient();
 
 builder.Services.AddRepositories();
 builder.Services.CustomValidator();
+builder.Services.AddScoped<GetAllDestinationQueryHandler>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 

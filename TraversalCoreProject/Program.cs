@@ -35,6 +35,10 @@ builder.Services.AddHttpClient();
 builder.Services.AddRepositories();
 builder.Services.CustomValidator();
 builder.Services.AddScoped<GetAllDestinationQueryHandler>();
+builder.Services.AddScoped<CreateDestinationCommandHandler>();
+builder.Services.AddScoped<GetDestinationByIdQueryHandler>();
+builder.Services.AddScoped<RemoveDestinationCommandHandler>();
+builder.Services.AddScoped<UpdateDestinationCommandHandler>();
 
 builder.Services.AddAutoMapper(typeof(Program));
 

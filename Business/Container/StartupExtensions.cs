@@ -6,12 +6,6 @@ using DataAccess.EntityFramework;
 using Dto.DTOs.AnnouncementDtos;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 namespace Business.Container
 {
     public static class StartupExtensions

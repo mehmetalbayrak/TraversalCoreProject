@@ -2,7 +2,7 @@
 using TraversalCoreProject.CQRS.Commands.DestinationCommands;
 using Entity.Concrete;
 
-namespace TraversalCoreProject.CQRS.Queries.Handlers.DestinationHandlers
+namespace TraversalCoreProject.CQRS.Handlers.DestinationHandlers
 {
     public class CreateDestinationCommandHandler
     {

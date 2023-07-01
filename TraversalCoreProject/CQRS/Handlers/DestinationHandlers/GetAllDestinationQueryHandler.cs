@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using TraversalCoreProject.CQRS.Results.DestinationResults;
 
-namespace TraversalCoreProject.CQRS.Queries.Handlers.DestinationHandlers
+namespace TraversalCoreProject.CQRS.Handlers.DestinationHandlers
 {
     public class GetAllDestinationQueryHandler
     {

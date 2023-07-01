@@ -1,15 +1,11 @@
-using Business.Abstract;
-using Business.Concrete;
 using Business.Container;
-using DataAccess.Abstract;
 using DataAccess.Concrete;
-using DataAccess.EntityFramework;
 using Entity.Concrete;
 using FluentValidation.AspNetCore;
+using MediatR;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc.Authorization;
-using TraversalCoreProject.CQRS.Queries.Handlers.DestinationHandlers;
+using TraversalCoreProject.CQRS.Handlers.DestinationHandlers;
 using TraversalCoreProject.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -39,6 +35,8 @@ builder.Services.AddScoped<CreateDestinationCommandHandler>();
 builder.Services.AddScoped<GetDestinationByIdQueryHandler>();
 builder.Services.AddScoped<RemoveDestinationCommandHandler>();
 builder.Services.AddScoped<UpdateDestinationCommandHandler>();
+
+builder.Services.AddMediatR(typeof(Program));
 
 builder.Services.AddAutoMapper(typeof(Program));
 

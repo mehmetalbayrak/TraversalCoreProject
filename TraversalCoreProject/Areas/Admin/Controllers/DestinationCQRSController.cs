@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using TraversalCoreProject.CQRS.Commands.DestinationCommands;
 using TraversalCoreProject.CQRS.Queries.DestinationQueries;
-using TraversalCoreProject.CQRS.Queries.Handlers.DestinationHandlers;
+using TraversalCoreProject.CQRS.Handlers.DestinationHandlers;
 
 namespace TraversalCoreProject.Areas.Admin.Controllers
 {

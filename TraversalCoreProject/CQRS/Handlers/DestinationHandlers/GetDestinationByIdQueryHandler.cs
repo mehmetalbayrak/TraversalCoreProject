@@ -2,7 +2,7 @@
 using TraversalCoreProject.CQRS.Queries.DestinationQueries;
 using TraversalCoreProject.CQRS.Results.DestinationResults;
 
-namespace TraversalCoreProject.CQRS.Queries.Handlers.DestinationHandlers
+namespace TraversalCoreProject.CQRS.Handlers.DestinationHandlers
 {
     public class GetDestinationByIdQueryHandler
     {

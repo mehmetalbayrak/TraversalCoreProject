@@ -25,7 +25,7 @@ namespace Business.Concrete
 
         public Guide GetById(int id)
         {
-            throw new NotImplementedException();
+            return _guideDal.GetById(id);
         }
 
         public void TAdd(Guide entity)

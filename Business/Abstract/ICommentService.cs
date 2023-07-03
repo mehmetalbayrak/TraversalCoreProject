@@ -11,5 +11,6 @@ namespace Business.Abstract
     {
         public List<Comment> GetDestinationById(int id);
         public List<Comment> GetListCommentWithDestination();
+        public List<Comment> GetListCommentWithDestinationAndUser(int id);
     }
 }

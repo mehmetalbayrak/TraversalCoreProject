@@ -38,6 +38,11 @@ namespace Business.Concrete
             return _commentDal.GetListCommentWithDestination();
         }
 
+        public List<Comment> GetListCommentWithDestinationAndUser(int id)
+        {
+            return _commentDal.GetListCommentWithDestinationAndUser(id);
+        }
+
         public void TAdd(Comment entity)
         {
             _commentDal.Add(entity);

@@ -2,6 +2,7 @@
 using DataAccess.EntityFramework;
 using Entity.Concrete;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCoreProject.Controllers
@@ -11,6 +12,12 @@ namespace TraversalCoreProject.Controllers
     {
 
         DestinationManager destinationManager = new DestinationManager(new EfDestinationDal());
+        private readonly UserManager<AppUser> _userManager;
+
+        public DestinationController(UserManager<AppUser> userManager)
+        {
+            _userManager = userManager;
+        }
 
         public IActionResult Index()
         {
@@ -18,10 +25,12 @@ namespace TraversalCoreProject.Controllers
             return View(values);
         }
         [HttpGet]
-        public IActionResult DestinationDetail(int id)
+        public async Task<IActionResult> DestinationDetail(int id)
         {
             ViewBag.Id = id;
-            var values = destinationManager.GetById(id);
+            var values = destinationManager.GetDestinationWithGuide(id);
+            var appUserId = await _userManager.FindByNameAsync(User.Identity.Name);
+            ViewBag.AppUserId = appUserId.Id;
             return View(values);
         }
         [HttpPost]

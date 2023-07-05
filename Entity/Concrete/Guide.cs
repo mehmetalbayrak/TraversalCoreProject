@@ -17,5 +17,6 @@ namespace Entity.Concrete
         public string TwitterUrl { get; set; }
         public string InstagramUrl { get; set; }
         public bool Status { get; set; }
+        public Destination Destination { get; set; }
     }
 }

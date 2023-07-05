@@ -4,6 +4,7 @@ using DataAccess.Concrete;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(Context))]
-    partial class ContextModelSnapshot : ModelSnapshot
+    [Migration("20230705151658_add_date_destination")]
+    partial class add_date_destination
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -399,9 +401,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("GuideId")
-                        .IsUnique()
-                        .HasFilter("[GuideId] IS NOT NULL");
+                    b.HasIndex("GuideId");
 
                     b.ToTable("Destinations");
                 });
@@ -727,8 +727,8 @@ namespace DataAccess.Migrations
             modelBuilder.Entity("Entity.Concrete.Destination", b =>
                 {
                     b.HasOne("Entity.Concrete.Guide", "Guide")
-                        .WithOne("Destination")
-                        .HasForeignKey("Entity.Concrete.Destination", "GuideId");
+                        .WithMany("Destinations")
+                        .HasForeignKey("GuideId");
 
                     b.Navigation("Guide");
                 });
@@ -819,8 +819,7 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Entity.Concrete.Guide", b =>
                 {
-                    b.Navigation("Destination")
-                        .IsRequired();
+                    b.Navigation("Destinations");
                 });
 #pragma warning restore 612, 618
         }

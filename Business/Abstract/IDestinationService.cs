@@ -9,5 +9,6 @@ namespace Business.Abstract
 {
     public interface IDestinationService : IGenericService<Destination>
     {
+        public List<Destination> GetDestinationWithGuide(int id);
     }
 }

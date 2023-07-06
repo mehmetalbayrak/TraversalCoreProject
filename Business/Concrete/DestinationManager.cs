@@ -28,7 +28,7 @@ namespace Business.Concrete
             return _destinationDal.GetById(id);
         }
 
-        public List<Destination> GetDestinationWithGuide(int id)
+        public Destination GetDestinationWithGuide(int id)
         {
             return _destinationDal.GetDestinationWithGuide(id);
         }

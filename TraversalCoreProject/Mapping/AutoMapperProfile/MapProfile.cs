@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Dto.DTOs.AnnouncementDtos;
 using Dto.DTOs.AppUserDtos;
+using Dto.DTOs.ContactDtos;
 using Entity.Concrete;
 
 namespace TraversalCoreProject.Mapping.AutoMapperProfile
@@ -14,6 +15,7 @@ namespace TraversalCoreProject.Mapping.AutoMapperProfile
             CreateMap<AppUserLoginDto, AppUser>().ReverseMap();
             CreateMap<AnnouncementListDto, Announcement>().ReverseMap();
             CreateMap<UpdateAnnouncementDto, Announcement>().ReverseMap();
+            CreateMap<SendMessageDto, ContactUs>().ReverseMap();
         }
     }
 }

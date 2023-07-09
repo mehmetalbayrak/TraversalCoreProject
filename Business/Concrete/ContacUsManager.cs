@@ -46,7 +46,7 @@ namespace Business.Concrete
 
         public void TAdd(ContactUs entity)
         {
-            throw new NotImplementedException();
+            _contactUsDal.Add(entity);
         }
 
         public void TDelete(ContactUs entity)

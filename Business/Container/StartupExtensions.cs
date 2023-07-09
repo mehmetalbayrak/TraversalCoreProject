@@ -7,6 +7,7 @@ using DataAccess.Abstract;
 using DataAccess.EntityFramework;
 using DataAccess.UnitOfWork;
 using Dto.DTOs.AnnouncementDtos;
+using Dto.DTOs.ContactDtos;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 namespace Business.Container
@@ -49,6 +50,7 @@ namespace Business.Container
         public static void CustomValidator(this IServiceCollection services)
         {
             services.AddTransient<IValidator<AddAnnouncementDto>, AnnouncementValidator>();
+            services.AddTransient<IValidator<SendMessageDto>, SendContactUsValidator>();
         }
     }
 }

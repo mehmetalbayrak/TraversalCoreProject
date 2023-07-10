@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using SignalRApi.DataAccess;
 using SignalRApi.Extensions;
 using Microsoft.Extensions.Configuration;
+using SignalRApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,8 +14,10 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddEntityFrameworkNpgsql().AddDbContext<Context>(opt=>
 {
-    opt.UseNpgsql("Server=localhost;Port=5432;Database=VisitorDb;User Id=postgres;Password=12345");
+    opt.UseNpgsql("Server=localhost;Port=5432;Database=TraversalVisitorDb;User Id=postgres;Password=12345");
 });
+builder.Services.AddScoped<VisitorService>();
+builder.Services.AddSignalR();
 
 var app = builder.Build();
 

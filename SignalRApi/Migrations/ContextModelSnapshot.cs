@@ -33,11 +33,11 @@ namespace SignalRApi.Migrations
                     b.Property<int>("City")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp with time zone");
-
                     b.Property<int>("VisitCount")
                         .HasColumnType("integer");
+
+                    b.Property<DateTime>("VisitDate")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 

@@ -12,8 +12,8 @@ using SignalRApi.DataAccess;
 namespace SignalRApi.Migrations
 {
     [DbContext(typeof(Context))]
-    [Migration("20230709191125_mig_init")]
-    partial class mig_init
+    [Migration("20230710140019_mig_first")]
+    partial class mig_first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,11 +35,11 @@ namespace SignalRApi.Migrations
                     b.Property<int>("City")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("Date")
-                        .HasColumnType("timestamp with time zone");
-
                     b.Property<int>("VisitCount")
                         .HasColumnType("integer");
+
+                    b.Property<DateTime>("VisitDate")
+                        .HasColumnType("timestamp with time zone");
 
                     b.HasKey("Id");
 

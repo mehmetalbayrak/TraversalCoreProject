@@ -1,9 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using SignalRApi.DataAccess;
-using SignalRApi.Extensions;
-using Microsoft.Extensions.Configuration;
-using SignalRApi.Models;
-using SignalRApi.Hubs;
+using SignalRApiMSSql.DataAccess;
+using SignalRApiMSSql.Hubs;
+using SignalRApiMSSql.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,10 +11,12 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddEntityFrameworkNpgsql().AddDbContext<Context>(opt =>
+
+builder.Services.AddDbContext<Context>(options =>
 {
-    opt.UseNpgsql("Server=localhost;Port=5432;Database=TraversalVisitorDb;User Id=postgres;Password=12345");
+    options.UseSqlServer("server=LAPTOP-JDE28UMP;database=TraversalVisitorDb;integrated security=true;");
 });
+
 builder.Services.AddScoped<VisitorService>();
 builder.Services.AddSignalR();
 
@@ -38,11 +38,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("CorsPolicy");
+
 app.UseRouting();
 
 app.UseAuthorization();
-
-app.UseCors("CorsPolicy");
 
 app.UseEndpoints(endpoints =>
 {

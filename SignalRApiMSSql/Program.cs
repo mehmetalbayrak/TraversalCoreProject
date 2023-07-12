@@ -47,9 +47,9 @@ app.UseAuthorization();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
-    endpoints.MapHub<VisitorHub>("/VisitorHub");
+    //endpoints.MapHub<VisitorHub>("/VisitorHub");
 });
-
+app.MapHub<VisitorHub>("/VisitorHub");
 app.MapControllers();
 
 app.Run();

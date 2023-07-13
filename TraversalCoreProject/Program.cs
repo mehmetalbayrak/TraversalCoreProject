@@ -49,6 +49,12 @@ builder.Services.AddMvc(config =>
 }
 );
 builder.Services.AddMvc();
+
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = "/Login/SignIn";
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -83,13 +89,4 @@ app.UseEndpoints(endpoints =>
       pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
     );
 });
-
-app.UseEndpoints(endpoints =>
-{
-    endpoints.MapControllerRoute(
-      name: "areas",
-      pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-    );
-});
-
 app.Run();

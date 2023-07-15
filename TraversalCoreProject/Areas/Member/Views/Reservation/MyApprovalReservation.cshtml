@@ -2,15 +2,14 @@
 @model List<Reservation>
 @{
     ViewData["Title"] = "MyApprovalReservation";
-    Layout = "~/Views/Shared/_UserLayout.cshtml";
+    Layout = "~/Views/Shared/_MemberLayout.cshtml";
 }
 
-<h1>Onay Bekleyen Rezervasyonlarım</h1>
 <div class="row">
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h4 class="card-title">Onay Bekleyen Rezervasyonlar</h4>
+                <h4 class="card-title">Aktif Rezervasyonlar</h4>
                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                 <div class="heading-elements">
                     <ul class="list-inline mb-0">
@@ -23,7 +22,7 @@
             </div>
             <div class="card-content collapse show">
                 <div class="card-body">
-                    <p class="card-text">Web Sitemiz Traversal üzerinde yapmış olduğunuz onay bekleyen rezervasyon listenize aşağıdan erişebilirsiniz. Rehberlerimiz ve diğer çalışanlarımız en kısa sürede sizlere dönüş yapacaktı</p>
+                    <p class="card-text">Web sitemiz Traversal üzerinden yapmış olduğunuz onay bekleyen rezervasyon listenize aşağıdan erişebilirsiniz. </p>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
@@ -40,13 +39,12 @@
                                 {
                                     <tr>
                                         <td>@item.ReservationId</td>
-                                       <td>@item.Destination.City</td>
+                                        <td>@item.Destination.City</td>
                                         <td>@item.PersonCount</td>
                                         <td>@(((DateTime)item.ReservationDate).ToString("dd-MMM-yyyy"))</td>
                                         <td>@item.Status</td>
                                     </tr>
                                 }
-
                             </tbody>
                         </table>
                     </div>
@@ -55,3 +53,5 @@
         </div>
     </div>
 </div>
+
+

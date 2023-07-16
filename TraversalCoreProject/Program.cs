@@ -5,6 +5,7 @@ using FluentValidation.AspNetCore;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.Razor;
 using TraversalCoreProject.CQRS.Handlers.DestinationHandlers;
 using TraversalCoreProject.Models;
 
@@ -40,6 +41,11 @@ builder.Services.AddMediatR(typeof(Program));
 
 builder.Services.AddAutoMapper(typeof(Program));
 
+builder.Services.AddLocalization(options =>
+{
+    options.ResourcesPath = "Resources";
+});
+
 builder.Services.AddMvc(config =>
 {
     var policy = new AuthorizationPolicyBuilder()
@@ -48,7 +54,7 @@ builder.Services.AddMvc(config =>
     config.Filters.Add(new AuthorizeFilter(policy));
 }
 );
-builder.Services.AddMvc();
+builder.Services.AddMvc().AddViewLocalization(LanguageViewLocationExpanderFormat.Suffix).AddDataAnnotationsLocalization();
 
 builder.Services.ConfigureApplicationCookie(options =>
 {
@@ -78,6 +84,11 @@ app.UseAuthentication();
 app.UseRouting();
 
 app.UseAuthorization();
+
+var supportedCultures = new[] { "en", "fr", "es", "tr", "de" };
+var localizationOptions = new RequestLocalizationOptions().SetDefaultCulture(supportedCultures[3]).AddSupportedCultures(supportedCultures).AddSupportedUICultures(supportedCultures);
+
+app.UseRequestLocalization(localizationOptions);
 
 app.MapControllerRoute(
     name: "default",

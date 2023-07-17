@@ -1,4 +1,5 @@
-﻿@*﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+﻿@using Microsoft.AspNetCore.Mvc.Localization﻿
+@inject IViewLocalizer localizer
 @{
     ViewData["Title"] = "MemberDashboard";
     Layout = null;
@@ -240,5 +241,3 @@
     <!-- END PAGE LEVEL JS-->
 </body>
 </html>
-
-*@

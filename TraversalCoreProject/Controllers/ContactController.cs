@@ -23,7 +23,7 @@ namespace TraversalCoreProject.Controllers
         public IActionResult Index()
         {
             var values = _contactService.GetAll();
-            return View(values);
+            return View();
         }
         [HttpPost]
         public IActionResult Index(SendMessageDto message)

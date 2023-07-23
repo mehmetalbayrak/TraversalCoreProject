@@ -123,7 +123,28 @@
   <data name="Geçmiş Rezv." xml:space="preserve">
     <value>Old Res.</value>
   </data>
+  <data name="Onay Bekleyen Rezv." xml:space="preserve">
+    <value>Approval Res.</value>
+  </data>
   <data name="Profilim" xml:space="preserve">
     <value>MyProfile</value>
+  </data>
+  <data name="Siteye Git" xml:space="preserve">
+    <value>Go Home</value>
+  </data>
+  <data name="Son Rotalar" xml:space="preserve">
+    <value>Last Routes</value>
+  </data>
+  <data name="Tur Rotaları" xml:space="preserve">
+    <value>Destinatination Routes</value>
+  </data>
+  <data name="Yeni Rezv." xml:space="preserve">
+    <value>New Res.</value>
+  </data>
+  <data name="Yorumlarım" xml:space="preserve">
+    <value>My Comments</value>
+  </data>
+  <data name="Çıkış Yap" xml:space="preserve">
+    <value>Log out</value>
   </data>
 </root>

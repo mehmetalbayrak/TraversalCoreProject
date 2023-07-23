@@ -31,11 +31,14 @@
                         @Html.Label("Mail Adresiniz")
                         <input type="text" asp-for="Email" class="form-control" />
                         <br />
+                        @Html.Label("Kullanıcı Adınız")
+                        <input type="text" asp-for="UserName" class="form-control" />
+                        <br />
                         @Html.Label("Şifreniz")
-                        <input type="text" asp-for="Password" class="form-control" />
+                        <input type="password" asp-for="Password" class="form-control" />
                         <br />
                         @Html.Label("Şifre Tekrar")
-                        <input type="text" asp-for="ConfirmPassword" class="form-control" />
+                        <input type="password" asp-for="ConfirmPassword" class="form-control" />
                         <br />
                         @Html.Label("Telefon Numarası")
                         <input type="text" asp-for="PhoneNumber" class="form-control" />

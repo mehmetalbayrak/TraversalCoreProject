@@ -25,7 +25,8 @@ namespace TraversalCoreProject.Areas.Member.Controllers
                 Name = values.Name,
                 Surname = values.Surname,
                 PhoneNumber = values.PhoneNumber,
-                Email = values.Email
+                Email = values.Email,
+                UserName = values.UserName
             };
             return View(userEditViewModel);
         }
@@ -45,11 +46,12 @@ namespace TraversalCoreProject.Areas.Member.Controllers
             }
             user.Name = userEditViewModel.Name;
             user.Surname = userEditViewModel.Surname;
-            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user,userEditViewModel.Password);
+            user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, userEditViewModel.Password);
+            user.UserName = userEditViewModel.UserName;
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
-                RedirectToAction("SignIn","Login");
+                RedirectToAction("SignIn", "Login");
             }
             return View();
 

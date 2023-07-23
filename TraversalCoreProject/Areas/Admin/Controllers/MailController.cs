@@ -19,7 +19,7 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
         {
             MimeMessage mimeMessage = new MimeMessage();
 
-            MailboxAddress mailboxAddressFrom = new MailboxAddress("Metesan Core Admin","metesanapi@gmail.com");
+            MailboxAddress mailboxAddressFrom = new MailboxAddress("Traversal Core Admin","metesanapi@gmail.com");
             mimeMessage.From.Add(mailboxAddressFrom);
 
             MailboxAddress mailboxAddressTo = new MailboxAddress("User",mailRequestModel.ReceiverMail);
@@ -33,7 +33,7 @@ namespace TraversalCoreProject.Areas.Admin.Controllers
 
             SmtpClient client = new SmtpClient();
             client.Connect("smtp.gmail.com",587,false);
-            client.Authenticate("metesanapi@gmail.com","");
+            client.Authenticate("metesanapi@gmail.com", "");
             client.Send(mimeMessage);
             client.Disconnect(true);
             return View();

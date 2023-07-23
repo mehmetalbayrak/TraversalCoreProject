@@ -1,12 +1,31 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Dto.DTOs.AppUserDtos;
+using Entity.Concrete;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace TraversalCoreProject.ViewComponents.MemberLayout
 {
-    public class _MemberLayoutNavbar :ViewComponent
+    public class _MemberLayoutNavbar : ViewComponent
     {
-        public IViewComponentResult Invoke()
+        private readonly UserManager<AppUser> _userManager;
+
+        public _MemberLayoutNavbar(UserManager<AppUser> userManager)
         {
-            return View();
+            _userManager = userManager;
+        }
+
+        public async Task<IViewComponentResult> InvokeAsync()
+        {
+            var values = await _userManager.FindByNameAsync(User.Identity.Name);
+            AppUserListDto appUserListDto = new()
+            {
+                Name = values.Name,
+                Surname = values.Surname,
+                Email = values.Email,
+                Image = values.Image,
+                UserName = values.UserName
+            };
+            return View(appUserListDto);
         }
     }
 }
